@@ -1,0 +1,14 @@
+server:
+  port: 8099
+  servlet:
+    context-path: /eureka
+eureka:
+  instance:
+    hostname: localhost
+  server:
+    enable-self-preservation: false #关闭自我保护机制（仅开放环境调试使用,生产环境不允许关闭）
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/${server.servlet.context-path}/

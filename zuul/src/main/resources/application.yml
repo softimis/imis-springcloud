@@ -1,0 +1,18 @@
+server:
+  port: 8011
+  servlet:
+    context-path: /zuul
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8099/eureka/eureka/
+spring:
+  application:
+    name: zuul-server
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: user-server
